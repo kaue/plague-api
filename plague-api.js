@@ -124,7 +124,27 @@
     });
   };
 
+  plague.deletePost = function(postId, callback){
+    var requestUrl = util.format('http://plague.io/api/posts/%s/?uid=%s&token=%s',postId, auth.uid, auth.token);
+    request.del({
+      url: requestUrl,
+      headers: apiHeaders
+    }, function(error, response, body) {
+      if (!error) {
+        var response = JSON.parse(body);
+        callback(response) // Show the HTML for the Google homepage.
+      }
+    });
+  };
 
+  plague.deleteAllPosts = function(callback){
+    plague.getPosts(function(r){
+      r.posts.forEach(function(p){
+        plague.deletePost(p.id);
+      });
+      callback();
+    });
+  };
   // Node.js
   if (typeof module !== 'undefined' && module.exports) {
     module.exports = plague;
