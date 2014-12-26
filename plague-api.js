@@ -5,8 +5,6 @@
 
 
 
-  var apiToken,
-      apiUserId;
   var apiHeaders = {
     'Host':'plague.io',
     'Content-Type':'application/x-www-form-urlencoded; charset=utf-8',
@@ -38,6 +36,20 @@
       }
     });
   };
+
+  plague.getPosts = function(uid, token, callback){
+    var requestUrl = util.format("http://plague.io/api/posts/?uid=%s&token=%s",uid, token);
+    request({
+      url: requestUrl,
+      headers: apiHeaders
+    }, function(error, response, body) {
+      if (!error) {
+        var response = JSON.parse(body);
+        callback(response) // Show the HTML for the Google homepage.
+      }
+    });
+  };
+
 
   // Node.js
   if (typeof module !== 'undefined' && module.exports) {

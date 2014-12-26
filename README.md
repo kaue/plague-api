@@ -10,6 +10,7 @@ plague.login('sample@domain.com', 'mypassword', function(user){
     console.log(user.error);
     return;
   }
+  //Now you have user.uid and user.token
   console.log(user);
 })
 /*
