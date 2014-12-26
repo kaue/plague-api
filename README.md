@@ -5,6 +5,8 @@ Plague Social Platform NodeJS API
 set(options)
 ----------------------
 Set Plague Api Options
+#### Parameters:
+**options:** Use this to set your latitude & longitude.
 #### Sample Code:
 ```javascript
 var plague = require('plague-api').set({
@@ -16,6 +18,10 @@ var plague = require('plague-api').set({
 login(email, password, callback)
 --------------------
 Login to get UserId and Token
+#### Parameters:
+**email:** Your plague user email.<br>
+**password:** Your plague user password.<br>
+**callback:** callback function.
 #### Sample Code:
 ```javascript
 plague.login('sample@domain.com', 'mypassword', function(user){
@@ -31,6 +37,8 @@ plague.login('sample@domain.com', 'mypassword', function(user){
 getPosts(callback)
 ----------------------
 Return all user posts
+#### Parameters:
+**callback:** callback function.
 #### Sample Code:
 ```javascript
 plague.login('sample@domain.com', 'mypassword', function(user){
@@ -52,6 +60,8 @@ plague.login('sample@domain.com', 'mypassword', function(user){
 getInfectionsNearby(callback)
 ----------------------
 Return Nearby Plagues
+#### Parameters:
+**callback:** callback function.
 #### Sample Code:
 ```javascript
 plague.login('sample@domain.com', 'mypassword', function(user){
@@ -69,6 +79,9 @@ plague.login('sample@domain.com', 'mypassword', function(user){
 postText(text, callback)
 ----------------------
 Send a text only post to Plague API
+#### Parameters:
+**text:** Text of the post.<br>
+**callback:** callback function.
 #### Sample Code:
 ```javascript
 plague.login('sample@domain.com', 'mypassword', function(user){
@@ -88,7 +101,8 @@ postLink(mediaLink, mediaLinkPreview, text, callback)
 Send a post with a Media Link
 #### Parameters:
 **mediaLink:** Url of the image should be around **600x600** pixels.<br>
-**mediaLinkPreview:** Url of the image should be around **300x300** pixels.
+**mediaLinkPreview:** Url of the image should be around **300x300** pixels.<br>
+**callback:** callback function.
 #### Sample Code:
 ```javascript
 plague.login('sample@domain.com', 'mypassword', function(user){
