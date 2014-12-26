@@ -22,6 +22,10 @@
     http://plague.io/api/auth/confirm_email/?recipient=EMAIL&code=CODE
     http://plague.io/api/auth/reset_password/?recipient=EMAIL&code=CODE
   */
+
+  /*
+    Set Plague Api Options
+  */
   plague.set = function(setOptions){
     options = setOptions;
     return plague;
@@ -124,6 +128,9 @@
     });
   };
 
+  /*
+    Delete a post using postId
+  */
   plague.deletePost = function(postId, callback){
     var requestUrl = util.format('http://plague.io/api/posts/%s/?uid=%s&token=%s',postId, auth.uid, auth.token);
     request.del({
@@ -136,7 +143,9 @@
       }
     });
   };
-
+  /*
+    Delete all user posts
+  */
   plague.deleteAllPosts = function(callback){
     plague.getPosts(function(r){
       r.posts.forEach(function(p){
