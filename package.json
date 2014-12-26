@@ -1,0 +1,24 @@
+{
+  "name": "plague-api",
+  "version": "1.0.0",
+  "description": "Plague Social Platform NodeJS API",
+  "main": "plague-api.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kauegimenes/plague-api.git"
+  },
+  "keywords": [
+    "Plague",
+    "API",
+    "Node"
+  ],
+  "author": "Kauê Gimenes <kaue@dot.net> (http://kauegimenes.github.io/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kauegimenes/plague-api/issues"
+  },
+  "homepage": "https://github.com/kauegimenes/plague-api"
+}
