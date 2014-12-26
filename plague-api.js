@@ -36,9 +36,26 @@
       }
     });
   };
-
+  //
+  // Return all user posts
+  //
   plague.getPosts = function(uid, token, callback){
     var requestUrl = util.format("http://plague.io/api/posts/?uid=%s&token=%s",uid, token);
+    request({
+      url: requestUrl,
+      headers: apiHeaders
+    }, function(error, response, body) {
+      if (!error) {
+        var response = JSON.parse(body);
+        callback(response) // Show the HTML for the Google homepage.
+      }
+    });
+  };
+  //
+  // Return Nearby Plagues
+  //
+  plague.getInfectionsNearby = function(uid, token, callback){
+    var requestUrl = util.format("http://plague.io/api/infections/?uid=%s&token=%s",uid, token);
     request({
       url: requestUrl,
       headers: apiHeaders
