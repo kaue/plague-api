@@ -29,7 +29,6 @@ plague.login('sample@domain.com', 'mypassword', function(user){
     console.log(user.error);
     return;
   }
-  //Now you have user.uid and user.token
   console.log(user);
 });
 ```
@@ -46,7 +45,6 @@ plague.login('sample@domain.com', 'mypassword', function(user){
     console.log(user.error);
     return;
   }
-  //Now you have user.uid and user.token
   //List all user posts
   plague.getPosts(function(res){
     var posts = res.posts;
@@ -69,7 +67,6 @@ plague.login('sample@domain.com', 'mypassword', function(user){
     console.log(user.error);
     return;
   }
-  //Now you have user.uid and user.token
   plague.getInfectionsNearby(function(res){
     console.log(res);
   });
@@ -89,7 +86,6 @@ plague.login('sample@domain.com', 'mypassword', function(user){
     console.log(user.error);
     return;
   }
-  //Now you have user.uid and user.token
   plague.postText('Hello Plague', function(res){
     console.log(res);
   });
@@ -110,7 +106,6 @@ plague.login('sample@domain.com', 'mypassword', function(user){
     console.log(user.error);
     return;
   }
-  //Now you have user.uid and user.token
   plague.postLink(
     'http://domain.com/imageFull.png',
     'http://domain.com/imageSmall.png',
@@ -133,7 +128,6 @@ plague.login('sample@domain.com', 'mypassword', function(user){
     console.log(user.error);
     return;
   }
-  //Now you have user.uid and user.token
   plague.deletePost(123456,function(res){
     console.log(res);
   });
@@ -152,7 +146,6 @@ plague.login('sample@domain.com', 'mypassword', function(user){
     console.log(user.error);
     return;
   }
-  //Now you have user.uid and user.token
   plague.deleteAllPosts(function(res){
     console.log(res);
   });
