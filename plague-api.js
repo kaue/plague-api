@@ -31,6 +31,32 @@
     return plague;
   }
   /*
+
+  */
+  plague.register = function(email, password, name, callback){
+    var requestUrl = 'http://plague.io/api/users/';
+    request.post({
+      url: requestUrl,
+      headers: apiHeaders,
+      form: {
+        latitude: options.latitude,
+        longitude: options.longitude,
+        email: email,
+        password: password,
+        name: name
+      }
+    }, function(error, response, body) {
+      if (!error) {
+        var response = JSON.parse(body);
+        if(response.client.uid)
+          auth.uid = response.client.uid;
+        if(response.client.token)
+          auth.token = response.client.token;
+        callback(response);
+      }
+    });
+  };
+  /*
     Login to get UserId and Token
   */
   plague.login = function(email, password, callback){
@@ -60,7 +86,7 @@
     }, function(error, response, body) {
       if (!error) {
         var response = JSON.parse(body);
-        callback(response) // Show the HTML for the Google homepage.
+        callback(response);
       }
     });
   };
@@ -75,7 +101,7 @@
     }, function(error, response, body) {
       if (!error) {
         var response = JSON.parse(body);
-        callback(response) // Show the HTML for the Google homepage.
+        callback(response);
       }
     });
   };
@@ -98,7 +124,7 @@
     }, function(error, response, body) {
       if (!error) {
         var response = JSON.parse(body);
-        callback(response) // Show the HTML for the Google homepage.
+        callback(response);
       }
     });
   };
@@ -123,11 +149,10 @@
     }, function(error, response, body) {
       if (!error) {
         var response = JSON.parse(body);
-        callback(response) // Show the HTML for the Google homepage.
+        callback(response);
       }
     });
   };
-
   /*
     Delete a post using postId
   */
@@ -139,7 +164,7 @@
     }, function(error, response, body) {
       if (!error) {
         var response = JSON.parse(body);
-        callback(response) // Show the HTML for the Google homepage.
+        callback(response);
       }
     });
   };
@@ -154,19 +179,7 @@
       callback();
     });
   };
-  // Node.js
-  if (typeof module !== 'undefined' && module.exports) {
-    module.exports = plague;
-  }
-  // AMD / RequireJS
-  else if (typeof define !== 'undefined' && define.amd) {
-    define([], function () {
-      return plague;
-    });
-  }
-  // included directly via <script> tag
-  else {
-    root.async = plague;
-  }
 
+  //Node.js Export
+  module.exports = plague;
 }());
