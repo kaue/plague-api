@@ -1,6 +1,9 @@
 plague-api
 ==========
 Plague Social Platform NodeJS API
+Changelog
+----------------------
+v1.04 - register method<br>
 
 set(options)
 ----------------------
