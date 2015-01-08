@@ -15,6 +15,25 @@ var plague = require('plague-api').set({
 });
 ```
 
+register(email, password, name, callback)
+--------------------
+Register to get UserId and Token
+#### Parameters:
+**email:** Your user email.<br>
+**password:** Your user password.<br>
+**name:** Your name.<br>
+**callback:** callback function.
+#### Sample Code:
+```javascript
+plague.register('sample@domain.com', 'mypassword', 'My Name', function(user){
+  if(user.error){
+    console.log(user.error);
+    return;
+  }
+  console.log(user);
+});
+```
+
 login(email, password, callback)
 --------------------
 Login to get UserId and Token
