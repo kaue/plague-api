@@ -12,8 +12,7 @@
     'Proxy-Connection':'keep-alive',
     'Accept':'application/json',
     'User-Agent':'Plague/1.1.25 (iPhone; iOS 8.3; Scale/2.00)',
-    'Accept-Language':'en',
-    'Accept-Encoding':'gzip, deflate'
+    'Accept-Language':'en'
   };
   var options = {};
   var auth = {};
