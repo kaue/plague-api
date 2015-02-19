@@ -3,9 +3,7 @@
 
 [![Build Status](http://img.shields.io/travis/kauegimenes/plague-api.svg)](https://travis-ci.org/kauegimenes/plague-api)  [![Gitter](https://img.shields.io/badge/gitter-join_chat-blue.svg?style=flat)](https://gitter.im/kauegimenes/plague-api?utm_source=badge)
 
-==========
-Plague Social Platform NodeJS API
-Changelog
+Plague Social Platform NodeJS API Changelog
 ----------------------
 v1.09 - include badges<br>
 v1.08 - include tests<br>
