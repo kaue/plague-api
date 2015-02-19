@@ -3,7 +3,7 @@ plague-api
 Plague Social Platform NodeJS API
 Changelog
 ----------------------
-v1.05 - fix encoding problem
+v1.05 - fix encoding problem<br>
 v1.04 - register method<br>
 
 set(options)
