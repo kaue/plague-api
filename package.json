@@ -1,6 +1,6 @@
 {
   "name": "plague-api",
-  "version": "1.0.91",
+  "version": "1.0.92",
   "description": "Plague Social Platform NodeJS API",
   "main": "plague-api.js",
 
