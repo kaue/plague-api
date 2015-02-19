@@ -32,7 +32,7 @@ test('testing register method', function(t) {
                 // Create Post
                 //
                 t.test('testing postText method', function(t) {
-                    var postText = 'Hello Plague';
+                    var postText = 'Hello Plague =)';
                     plague.postText(postText, function(res) {                    	
                         t.equal(res.status, 'OK');
                         t.end(res.error);
@@ -45,8 +45,8 @@ test('testing register method', function(t) {
                                 t.equal(posts.length, 1);
                                 t.equal(posts[0] ? posts[0].text : '', postText);
                                 t.end(res.error);
-                                t.test('testing deleteAllPosts method', function(t){
-                                	 plague.deleteAllPosts(function(res){
+                                t.test('testing deletePost method', function(t){
+                                	 plague.deletePost(posts[0] ? posts[0].id : 0,function(res){
 									    plague.getPosts(function(res) {
 									    	t.equal(res.posts.length, 0);
 									    	t.end(res.error);
