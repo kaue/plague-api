@@ -12,7 +12,7 @@ set(options)
 ----------------------
 Set Plague Api Options
 #### Parameters:
-**options:** Use this to set your latitude & longitude.
+**options:** Use this to set your location.
 #### Sample Code:
 ```javascript
 var plague = require('plague-api').set({
