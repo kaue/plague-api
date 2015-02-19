@@ -3,6 +3,7 @@
 Plague Social Platform NodeJS API
 Changelog
 ----------------------
+v1.08 - include tests<br>
 v1.07 - new methods - resetPassword and confirmEmail<br>
 v1.06 - option to change locality using set function<br>
 v1.05 - fix encoding problem<br>
