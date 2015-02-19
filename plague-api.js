@@ -16,11 +16,6 @@
     };
     var options = {};
     var auth = {};
-    /*
-      Todo
-      http://plague.io/api/auth/confirm_email/?recipient=EMAIL&code=CODE
-      http://plague.io/api/auth/reset_password/?recipient=EMAIL&code=CODE
-    */
 
     /*
       Set Plague Api Options
@@ -28,10 +23,44 @@
     plague.set = function(setOptions) {
             options = setOptions;
             return plague;
-        }
-        /*
-
-        */
+    }
+    /*
+      Confirm E-mail
+    */
+    plague.confirmEmail = function(email, code, callback) {
+        var requestUrl = util.format("http://plague.io/api/auth/confirm_email/?recipient=%s&code=%s", email, code);
+        request({
+            url: requestUrl,
+            headers: apiHeaders
+        }, function(error, response, body) {
+            if (!error) {
+            	if(body == 'Bad code')
+            		return callback({error: 'Bad code'})            	         	
+                var response = JSON.parse(body);
+                callback(response);
+            }
+        });
+    };
+    /*
+      Login to get UserId and Token
+    */
+    plague.resetPassword = function(email, code, callback) {
+        var requestUrl = util.format("http://plague.io/api/auth/reset_password/?recipient=%s&code=%s", email, code);
+        request({
+            url: requestUrl,
+            headers: apiHeaders
+        }, function(error, response, body) {
+            if (!error) {
+            	if(body == 'Bad code, try to request code again')
+            		return callback({error: 'Bad code, try to request code again'})
+                var response = JSON.parse(body);                
+                callback(response);
+            }
+        });
+    };    
+    /*
+		Create a new Plague user
+    */
     plague.register = function(email, password, name, callback) {
         var requestUrl = 'http://plague.io/api/users/';
         request.post({
