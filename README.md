@@ -1,5 +1,6 @@
 # plague-api 
 [![npm package](https://nodei.co/npm/plague-api.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/request/)
+
 [![Build Status](http://img.shields.io/travis/kauegimenes/plague-api.svg)](https://travis-ci.org/kauegimenes/plague-api)
 [![Gitter](https://img.shields.io/badge/gitter-join_chat-blue.svg?style=flat)](https://gitter.im/kauegimenes/plague-api?utm_source=badge)
 ==========
