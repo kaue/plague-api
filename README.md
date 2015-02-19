@@ -1,12 +1,13 @@
 # plague-api 
 [![npm package](https://nodei.co/npm/plague-api.png?downloads=true&downloadRank=true&stars=true)](https://nodei.co/npm/request/)
 
-[![Build Status](http://img.shields.io/travis/kauegimenes/plague-api.svg)](https://travis-ci.org/kauegimenes/plague-api)[![Gitter](https://img.shields.io/badge/gitter-join_chat-blue.svg?style=flat)](https://gitter.im/kauegimenes/plague-api?utm_source=badge)
+[![Build Status](http://img.shields.io/travis/kauegimenes/plague-api.svg)](https://travis-ci.org/kauegimenes/plague-api)  [![Gitter](https://img.shields.io/badge/gitter-join_chat-blue.svg?style=flat)](https://gitter.im/kauegimenes/plague-api?utm_source=badge)
 
 ==========
 Plague Social Platform NodeJS API
 Changelog
 ----------------------
+v1.09 - include badges<br>
 v1.08 - include tests<br>
 v1.07 - new methods - resetPassword and confirmEmail<br>
 v1.06 - option to change locality using set function<br>
