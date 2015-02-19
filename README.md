@@ -3,6 +3,7 @@ plague-api
 Plague Social Platform NodeJS API
 Changelog
 ----------------------
+v1.07 - new methods - resetPassword and confirmEmail
 v1.06 - option to change locality using set function<br>
 v1.05 - fix encoding problem<br>
 v1.04 - register method<br>
@@ -57,6 +58,34 @@ plague.login('sample@domain.com', 'mypassword', function(user){
     return;
   }
   console.log(user);
+});
+```
+
+confirmEmail(email, code, callback)
+--------------------
+Confirm user e-mail
+#### Parameters:
+**email:** Your plague user email.<br>
+**code:** Your plague confirmation code.<br>
+**callback:** callback function.
+#### Sample Code:
+```javascript
+plague.confirmEmail('sample@domain.com', '1234', function(res){
+  console.log(res);
+});
+```
+
+resetPassword(email, code, callback)
+--------------------
+Reset user password using e-mail
+#### Parameters:
+**email:** Your plague user email.<br>
+**code:** Your plague confirmation code.<br>
+**callback:** callback function.
+#### Sample Code:
+```javascript
+plague.resetPassword('sample@domain.com', '1234', function(res){
+  console.log(res);
 });
 ```
 

@@ -42,7 +42,7 @@
         });
     };
     /*
-      Login to get UserId and Token
+      Reset user password using email
     */
     plague.resetPassword = function(email, code, callback) {
         var requestUrl = util.format("http://plague.io/api/auth/reset_password/?recipient=%s&code=%s", email, code);
