@@ -33,7 +33,7 @@ test('testing register method', function(t) {
                 //
                 t.test('testing postText method', function(t) {
                     var postText = 'Hello Plague =)';
-                    plague.postText(postText, function(res) {                    	
+                    plague.postText(postText, function(res) {
                         t.equal(res.status, 'OK');
                         t.end(res.error);
                         //
@@ -41,28 +41,25 @@ test('testing register method', function(t) {
                         //			  	
                         t.test('testing getPosts method', function(t) {
                             plague.getPosts(function(res) {
-                                var posts = res.posts;                                
+                                var posts = res.posts;
                                 t.equal(posts.length, 1);
                                 t.equal(posts[0] ? posts[0].text : '', postText);
                                 t.end(res.error);
-                                t.test('testing deletePost method', function(t){
-                                	 plague.deletePost(posts[0] ? posts[0].id : 0,function(res){
-									    plague.getPosts(function(res) {
-									    	t.equal(res.posts.length, 0);
-									    	t.end(res.error);
-									    });
-									});
+                                t.test('testing deletePost method', function(t) {
+                                    plague.deletePost(posts[0] ? posts[0].id : 0, function(res) {
+                                        plague.getPosts(function(res) {
+                                            t.equal(res.posts.length, 0);
+                                            t.end(res.error);
+                                        });
+                                    });
                                 })
                             });
-                        })                                               
+                        })
                     });
-
                 })
             });
         });
     });
-
-
 });
 
 
