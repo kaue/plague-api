@@ -33,8 +33,7 @@ test('testing register method', function(t) {
                 //
                 t.test('testing postText method', function(t) {
                     var postText = 'Hello Plague';
-                    plague.postText(postText, function(res) {
-                    	console.log(res);
+                    plague.postText(postText, function(res) {                    	
                         t.equal(res.status, 'OK');
                         t.end(res.error);
                         //
@@ -42,11 +41,18 @@ test('testing register method', function(t) {
                         //			  	
                         t.test('testing getPosts method', function(t) {
                             plague.getPosts(function(res) {
-                                var posts = res.posts;
-                                console.log(posts);
+                                var posts = res.posts;                                
                                 t.equal(posts.length, 1);
                                 t.equal(posts[0] ? posts[0].text : '', postText);
                                 t.end();
+                                t.test('testing deleteAllPosts method', function(t){
+                                	 plague.deleteAllPosts(function(res){
+									    plague.getPosts(function(res) {
+									    	t.equal(posts.length, 0);
+									    	t.end(res.end);
+									    });
+									});
+                                })
                             });
                         })                                               
                     });
