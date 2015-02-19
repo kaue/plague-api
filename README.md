@@ -3,6 +3,7 @@ plague-api
 Plague Social Platform NodeJS API
 Changelog
 ----------------------
+v1.06 - option to change locality using set function<br>
 v1.05 - fix encoding problem<br>
 v1.04 - register method<br>
 
@@ -15,7 +16,10 @@ Set Plague Api Options
 ```javascript
 var plague = require('plague-api').set({
   latitude: -99.999999999999,
-  longitude: -99.999999999999
+  longitude: -99.999999999999,
+  administrativeArea: 'Quebec',
+  country: 'Canada',
+  locality: 'Montreal'
 });
 ```
 
