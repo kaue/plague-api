@@ -1,6 +1,4 @@
-# nodewebkit [![Build Status](http://img.shields.io/travis/kauegimenes/plague-api.svg)](https://travis-ci.org/kauegimenes/plague-api)
-
-plague-api
+# plague-api [![Build Status](http://img.shields.io/travis/kauegimenes/plague-api.svg)](https://travis-ci.org/kauegimenes/plague-api)
 ==========
 Plague Social Platform NodeJS API
 Changelog
