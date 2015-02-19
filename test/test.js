@@ -44,12 +44,12 @@ test('testing register method', function(t) {
                                 var posts = res.posts;                                
                                 t.equal(posts.length, 1);
                                 t.equal(posts[0] ? posts[0].text : '', postText);
-                                t.end();
+                                t.end(res.error);
                                 t.test('testing deleteAllPosts method', function(t){
                                 	 plague.deleteAllPosts(function(res){
 									    plague.getPosts(function(res) {
-									    	t.equal(posts.length, 0);
-									    	t.end(res.end);
+									    	t.equal(res.posts.length, 0);
+									    	t.end(res.error);
 									    });
 									});
                                 })
