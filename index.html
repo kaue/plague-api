@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <link href='https://fonts.googleapis.com/css?family=Chivo:900' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <title>Plague-api by kauegimenes</title>
+  </head>
+
+  <body>
+    <div id="container">
+      <div class="inner">
+
+        <header>
+          <h1>Plague-api</h1>
+          <h2>Plague Social Platform NodeJS API</h2>
+        </header>
+
+        <section id="downloads" class="clearfix">
+          <a href="https://github.com/kauegimenes/plague-api/zipball/master" id="download-zip" class="button"><span>Download .zip</span></a>
+          <a href="https://github.com/kauegimenes/plague-api/tarball/master" id="download-tar-gz" class="button"><span>Download .tar.gz</span></a>
+          <a href="https://github.com/kauegimenes/plague-api" id="view-on-github" class="button"><span>View on GitHub</span></a>
+        </section>
+
+        <hr>
+
+        <section id="main_content">
+          <p><a href="https://nodei.co/npm/plague-api/"><img src="https://nodei.co/npm/plague-api.png?downloads=true&amp;downloadRank=true&amp;stars=true" alt="npm package"></a></p>
+
+<p><a href="https://travis-ci.org/kauegimenes/plague-api"><img src="http://img.shields.io/travis/kauegimenes/plague-api.svg" alt="Build Status"></a>   <a href="https://gitter.im/kauegimenes/plague-api?utm_source=badge"><img src="https://img.shields.io/badge/gitter-join_chat-blue.svg?style=flat" alt="Gitter"></a></p>
+
+<h2>
+<a id="plague-social-platform-nodejs-api-changelog" class="anchor" href="#plague-social-platform-nodejs-api-changelog" aria-hidden="true"><span class="octicon octicon-link"></span></a>Plague Social Platform NodeJS API Changelog</h2>
+
+<p>v1.09 - include badges<br>
+v1.08 - include tests<br>
+v1.07 - new methods - resetPassword and confirmEmail<br>
+v1.06 - option to change locality using set function<br>
+v1.05 - fix encoding problem<br>
+v1.04 - register method<br></p>
+
+<h2>
+<a id="setoptions" class="anchor" href="#setoptions" aria-hidden="true"><span class="octicon octicon-link"></span></a>set(options)</h2>
+
+<p>Set Plague Api Options</p>
+
+<h4>
+<a id="parameters" class="anchor" href="#parameters" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<p><strong>options:</strong> Use this to set your location.</p>
+
+<h4>
+<a id="sample-code" class="anchor" href="#sample-code" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h4>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> plague <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>plague-api<span class="pl-pds">'</span></span>).set({
+  latitude<span class="pl-k">:</span> <span class="pl-k">-</span><span class="pl-c1">99.999999999999</span>,
+  longitude<span class="pl-k">:</span> <span class="pl-k">-</span><span class="pl-c1">99.999999999999</span>,
+  administrativeArea<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Quebec<span class="pl-pds">'</span></span>,
+  country<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Canada<span class="pl-pds">'</span></span>,
+  locality<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">'</span>Montreal<span class="pl-pds">'</span></span>
+});</pre></div>
+
+<h2>
+<a id="registeremail-password-name-callback" class="anchor" href="#registeremail-password-name-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>register(email, password, name, callback)</h2>
+
+<p>Register to get UserId and Token</p>
+
+<h4>
+<a id="parameters-1" class="anchor" href="#parameters-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<p><strong>email:</strong> Your user email.<br>
+<strong>password:</strong> Your user password.<br>
+<strong>name:</strong> Your name.<br>
+<strong>callback:</strong> callback function.</p>
+
+<h4>
+<a id="sample-code-1" class="anchor" href="#sample-code-1" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h4>
+
+<div class="highlight highlight-javascript"><pre>plague.register(<span class="pl-s"><span class="pl-pds">'</span>sample@domain.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>mypassword<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>My Name<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">user</span>){
+  <span class="pl-k">if</span>(user<span class="pl-c1">.error</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(user<span class="pl-c1">.error</span>);
+    <span class="pl-k">return</span>;
+  }
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(user);
+});</pre></div>
+
+<h2>
+<a id="loginemail-password-callback" class="anchor" href="#loginemail-password-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>login(email, password, callback)</h2>
+
+<p>Login to get UserId and Token</p>
+
+<h4>
+<a id="parameters-2" class="anchor" href="#parameters-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<p><strong>email:</strong> Your plague user email.<br>
+<strong>password:</strong> Your plague user password.<br>
+<strong>callback:</strong> callback function.</p>
+
+<h4>
+<a id="sample-code-2" class="anchor" href="#sample-code-2" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h4>
+
+<div class="highlight highlight-javascript"><pre>plague.login(<span class="pl-s"><span class="pl-pds">'</span>sample@domain.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>mypassword<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">user</span>){
+  <span class="pl-k">if</span>(user<span class="pl-c1">.error</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(user<span class="pl-c1">.error</span>);
+    <span class="pl-k">return</span>;
+  }
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(user);
+});</pre></div>
+
+<h2>
+<a id="confirmemailemail-code-callback" class="anchor" href="#confirmemailemail-code-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>confirmEmail(email, code, callback)</h2>
+
+<p>Confirm user e-mail</p>
+
+<h4>
+<a id="parameters-3" class="anchor" href="#parameters-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<p><strong>email:</strong> Your plague user email.<br>
+<strong>code:</strong> Your plague confirmation code.<br>
+<strong>callback:</strong> callback function.</p>
+
+<h4>
+<a id="sample-code-3" class="anchor" href="#sample-code-3" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h4>
+
+<div class="highlight highlight-javascript"><pre>plague.confirmEmail(<span class="pl-s"><span class="pl-pds">'</span>sample@domain.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>1234<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(res);
+});</pre></div>
+
+<h2>
+<a id="resetpasswordemail-code-callback" class="anchor" href="#resetpasswordemail-code-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>resetPassword(email, code, callback)</h2>
+
+<p>Reset user password using e-mail</p>
+
+<h4>
+<a id="parameters-4" class="anchor" href="#parameters-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<p><strong>email:</strong> Your plague user email.<br>
+<strong>code:</strong> Your plague confirmation code.<br>
+<strong>callback:</strong> callback function.</p>
+
+<h4>
+<a id="sample-code-4" class="anchor" href="#sample-code-4" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h4>
+
+<div class="highlight highlight-javascript"><pre>plague.resetPassword(<span class="pl-s"><span class="pl-pds">'</span>sample@domain.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>1234<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+  <span class="pl-en">console</span><span class="pl-c1">.log</span>(res);
+});</pre></div>
+
+<h2>
+<a id="getpostscallback" class="anchor" href="#getpostscallback" aria-hidden="true"><span class="octicon octicon-link"></span></a>getPosts(callback)</h2>
+
+<p>Return all user posts</p>
+
+<h4>
+<a id="parameters-5" class="anchor" href="#parameters-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<p><strong>callback:</strong> callback function.</p>
+
+<h4>
+<a id="sample-code-5" class="anchor" href="#sample-code-5" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h4>
+
+<div class="highlight highlight-javascript"><pre>plague.login(<span class="pl-s"><span class="pl-pds">'</span>sample@domain.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>mypassword<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">user</span>){
+  <span class="pl-k">if</span>(user<span class="pl-c1">.error</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(user<span class="pl-c1">.error</span>);
+    <span class="pl-k">return</span>;
+  }
+  <span class="pl-c">//List all user posts</span>
+  plague.getPosts(<span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+    <span class="pl-k">var</span> posts <span class="pl-k">=</span> res.posts;
+    posts.forEach(<span class="pl-k">function</span>(<span class="pl-smi">post</span>) {
+      <span class="pl-en">console</span><span class="pl-c1">.log</span>(post);
+    })
+  });
+});</pre></div>
+
+<h2>
+<a id="getinfectionsnearbycallback" class="anchor" href="#getinfectionsnearbycallback" aria-hidden="true"><span class="octicon octicon-link"></span></a>getInfectionsNearby(callback)</h2>
+
+<p>Return Nearby Plagues</p>
+
+<h4>
+<a id="parameters-6" class="anchor" href="#parameters-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<p><strong>callback:</strong> callback function.</p>
+
+<h4>
+<a id="sample-code-6" class="anchor" href="#sample-code-6" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h4>
+
+<div class="highlight highlight-javascript"><pre>plague.login(<span class="pl-s"><span class="pl-pds">'</span>sample@domain.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>mypassword<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">user</span>){
+  <span class="pl-k">if</span>(user<span class="pl-c1">.error</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(user<span class="pl-c1">.error</span>);
+    <span class="pl-k">return</span>;
+  }
+  plague.getInfectionsNearby(<span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(res);
+  });
+});</pre></div>
+
+<h2>
+<a id="posttexttext-callback" class="anchor" href="#posttexttext-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>postText(text, callback)</h2>
+
+<p>Send a text only post to Plague API</p>
+
+<h4>
+<a id="parameters-7" class="anchor" href="#parameters-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<p><strong>text:</strong> Text of the post.<br>
+<strong>callback:</strong> callback function.</p>
+
+<h4>
+<a id="sample-code-7" class="anchor" href="#sample-code-7" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h4>
+
+<div class="highlight highlight-javascript"><pre>plague.login(<span class="pl-s"><span class="pl-pds">'</span>sample@domain.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>mypassword<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">user</span>){
+  <span class="pl-k">if</span>(user<span class="pl-c1">.error</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(user<span class="pl-c1">.error</span>);
+    <span class="pl-k">return</span>;
+  }
+  plague.postText(<span class="pl-s"><span class="pl-pds">'</span>Hello Plague<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(res);
+  });
+});</pre></div>
+
+<h2>
+<a id="postlinkmedialink-medialinkpreview-text-callback" class="anchor" href="#postlinkmedialink-medialinkpreview-text-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>postLink(mediaLink, mediaLinkPreview, text, callback)</h2>
+
+<p>Send a post with a Media Link</p>
+
+<h4>
+<a id="parameters-8" class="anchor" href="#parameters-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<p><strong>mediaLink:</strong> Url of the image should be around <strong>600x600</strong> pixels.<br>
+<strong>mediaLinkPreview:</strong> Url of the image should be around <strong>300x300</strong> pixels.<br>
+<strong>callback:</strong> callback function.</p>
+
+<h4>
+<a id="sample-code-8" class="anchor" href="#sample-code-8" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h4>
+
+<div class="highlight highlight-javascript"><pre>plague.login(<span class="pl-s"><span class="pl-pds">'</span>sample@domain.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>mypassword<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">user</span>){
+  <span class="pl-k">if</span>(user<span class="pl-c1">.error</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(user<span class="pl-c1">.error</span>);
+    <span class="pl-k">return</span>;
+  }
+  plague.postLink(
+    <span class="pl-s"><span class="pl-pds">'</span>http://domain.com/imageFull.png<span class="pl-pds">'</span></span>,
+    <span class="pl-s"><span class="pl-pds">'</span>http://domain.com/imageSmall.png<span class="pl-pds">'</span></span>,
+    <span class="pl-s"><span class="pl-pds">'</span>Hello! =)<span class="pl-pds">'</span></span>,<span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+      <span class="pl-en">console</span><span class="pl-c1">.log</span>(res);
+    });
+});</pre></div>
+
+<h2>
+<a id="deletepostpostid-callback" class="anchor" href="#deletepostpostid-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>deletePost(postId, callback)</h2>
+
+<p>Delete a post using postId</p>
+
+<h4>
+<a id="parameters-9" class="anchor" href="#parameters-9" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<p><strong>postId:</strong> This is the id returned from <strong>getPosts</strong>.<br>
+<strong>callback:</strong> callback function.</p>
+
+<h4>
+<a id="sample-code-9" class="anchor" href="#sample-code-9" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h4>
+
+<div class="highlight highlight-javascript"><pre>plague.login(<span class="pl-s"><span class="pl-pds">'</span>sample@domain.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>mypassword<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">user</span>){
+  <span class="pl-k">if</span>(user<span class="pl-c1">.error</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(user<span class="pl-c1">.error</span>);
+    <span class="pl-k">return</span>;
+  }
+  plague.deletePost(<span class="pl-c1">123456</span>,<span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(res);
+  });
+});</pre></div>
+
+<h2>
+<a id="deleteallpostspostid-callback" class="anchor" href="#deleteallpostspostid-callback" aria-hidden="true"><span class="octicon octicon-link"></span></a>deleteAllPosts(postId, callback)</h2>
+
+<p>Delete all user posts</p>
+
+<h4>
+<a id="parameters-10" class="anchor" href="#parameters-10" aria-hidden="true"><span class="octicon octicon-link"></span></a>Parameters:</h4>
+
+<p><strong>callback:</strong> callback function.</p>
+
+<h4>
+<a id="sample-code-10" class="anchor" href="#sample-code-10" aria-hidden="true"><span class="octicon octicon-link"></span></a>Sample Code:</h4>
+
+<div class="highlight highlight-javascript"><pre>plague.login(<span class="pl-s"><span class="pl-pds">'</span>sample@domain.com<span class="pl-pds">'</span></span>, <span class="pl-s"><span class="pl-pds">'</span>mypassword<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">user</span>){
+  <span class="pl-k">if</span>(user<span class="pl-c1">.error</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(user<span class="pl-c1">.error</span>);
+    <span class="pl-k">return</span>;
+  }
+  plague.deleteAllPosts(<span class="pl-k">function</span>(<span class="pl-smi">res</span>){
+    <span class="pl-en">console</span><span class="pl-c1">.log</span>(res);
+  });
+});</pre></div>
+        </section>
+
+        <footer>
+          Plague-api is maintained by <a href="https://github.com/kauegimenes">kauegimenes</a><br>
+          This page was generated by <a href="https://pages.github.com">GitHub Pages</a>. Tactile theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.
+        </footer>
+
+        
+      </div>
+    </div>
+  </body>
+</html>
