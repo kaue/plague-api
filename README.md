@@ -1,4 +1,4 @@
-# plague-api 
+# :globe_with_meridians: plague-api 
 
 [![Build Status](http://img.shields.io/travis/kauegimenes/plague-api.svg)](https://travis-ci.org/kauegimenes/plague-api)   [![Gitter](https://img.shields.io/badge/gitter-join_chat-blue.svg?style=flat)](https://gitter.im/kauegimenes/plague-api?utm_source=badge)
 
